@@ -110,6 +110,10 @@ func LoadAPIVersions(service *Service, specFormat string) (map[string]*APIVersio
 			continue
 		}
 
+		if strings.HasPrefix(file.Name(), "."){
+			continue
+		}
+
 		apiVersion := &APIVersion{
 			Filename: file.Name(),
 			FilePath: service.FilePath + "/" + file.Name(),
